@@ -1,4 +1,3 @@
-cat > src/components/App.jsx << 'EOF'
 import PlantPage from './PlantPage'
 
 function App() {
@@ -10,4 +9,3 @@ function App() {
 }
 
 export default App
-EOF
