@@ -20,7 +20,7 @@ function NewPlantForm({ onAddPlant }) {
     const newPlant = {
       name: formData.name,
       image: formData.image,
-      price: Number(formData.price)
+      price: +formData.price  // The + operator converts to number
     }
 
     fetch('http://localhost:6001/plants', {
