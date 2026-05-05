@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 function PlantCard({ plant }) {
-  console.log('PlantCard rendering for:', plant.name)
   const [isSoldOut, setIsSoldOut] = useState(false)
 
   function handleStockClick() {
@@ -9,7 +8,7 @@ function PlantCard({ plant }) {
   }
 
   return (
-    <div className="plant-card">
+    <div className="plant-card" data-testid="plant-item">
       <img src={plant.image} alt={plant.name} />
       <h4>{plant.name}</h4>
       <p>Price: ${plant.price}</p>

@@ -8,35 +8,29 @@ function PlantPage() {
   const [plants, setPlants] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
 
-  // Fetch plants on page load
-useEffect(() => {
-  fetch('http://localhost:6001/plants')
-    .then(res => res.json())
-    .then(data => {
-      console.log('Fetched data:', data)  
-      console.log('Number of plants:', data.length)  
-      setPlants(data)
-    })
-}, [])
+  useEffect(() => {
+    fetch('http://localhost:6001/plants')
+      .then(res => res.json())
+      .then(data => setPlants(data))
+      .catch(error => console.error('Error fetching plants:', error))
+  }, [])
 
-  // Add new plant
   function handleAddPlant(newPlant) {
     setPlants([...plants, newPlant])
   }
 
-  // Filter plants based on search
   const filteredPlants = plants.filter(plant =>
     plant.name.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
   return (
-  <main>
-    <Header />
-    <NewPlantForm onAddPlant={handleAddPlant} />
-    <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-    <PlantList plants={filteredPlants} />  {/* ← This line is key */}
-  </main>
-)
+    <main>
+      <Header />
+      <NewPlantForm onAddPlant={handleAddPlant} />
+      <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+      <PlantList plants={filteredPlants} />
+    </main>
+  )
 }
 
 export default PlantPage
