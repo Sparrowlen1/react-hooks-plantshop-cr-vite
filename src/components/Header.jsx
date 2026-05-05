@@ -1,16 +1,10 @@
-import React from "react";
-
 function Header() {
   return (
-    <header>
-      <h1>
-        Plantsy
-        <span className="logo" role="img">
-          🌱
-        </span>
-      </h1>
-    </header>
-  );
+    <div className="header">
+      <h1>Plantsy</h1>
+      <h2>Your one-stop shop for all things green </h2>
+    </div>
+  )
 }
 
-export default Header;
+export default Header

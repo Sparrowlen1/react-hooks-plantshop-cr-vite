@@ -1,10 +1,17 @@
-import React from "react";
-import PlantCard from "./PlantCard";
+import PlantCard from './PlantCard'
 
-function PlantList() {
+function PlantList({ plants }) {
+  console.log('PlantList received:', plants)  
+  console.log('Number of plants in PlantList:', plants.length)  
+  
   return (
-    <ul className="cards">{/* render PlantCards components in here */}</ul>
-  );
+    <div className="plant-list">
+      {plants.map(plant => {
+        console.log('Rendering plant:', plant.name)  
+        return <PlantCard key={plant.id} plant={plant} />
+      })}
+    </div>
+  )
 }
 
-export default PlantList;
+export default PlantList
