@@ -1,13 +1,18 @@
-import PlantCard from './PlantCard'
+import React from "react";
+import PlantCard from "./PlantCard";
 
-function PlantList({ plants }) {
+function PlantList({ plants, onSoldOut }) {
   return (
-    <div className="plant-list">
-      {plants.map(plant => (
-        <PlantCard key={plant.id} plant={plant} />
+    <ul className="cards">
+      {plants.map((plant) => (
+        <PlantCard
+          key={plant.id}
+          plant={plant}
+          onSoldOut={onSoldOut}
+        />
       ))}
-    </div>
-  )
+    </ul>
+  );
 }
 
-export default PlantList
+export default PlantList;
